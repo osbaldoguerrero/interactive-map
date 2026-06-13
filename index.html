@@ -3,11 +3,55 @@
 
 <head>
   <title>Mapa Interactivo</title>
+
+  <style>
+
+    body{
+      margin:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      background:#f0f0f0;
+    }
+
+    #mapContainer{
+      width:360px;
+      aspect-ratio:9/16;
+      position:relative;
+      overflow:hidden;
+      border:2px solid black;
+    }
+
+    #mapContainer img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<h1>Mapa Interactivo</h1>
+  <div id="mapContainer"></div>
+
+  <script>
+
+    const data = {
+      mapImage: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/6uZKG4gRQNG3ss5SUfYV.jpg"
+    };
+
+    const mapContainer = document.getElementById("mapContainer");
+
+    const mapImage = document.createElement("img");
+
+    mapImage.src = data.mapImage;
+
+    mapContainer.appendChild(mapImage);
+
+  </script>
 
 </body>
 
