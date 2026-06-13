@@ -29,6 +29,10 @@
       object-fit:cover;
     }
 
+    .character{
+  position:absolute;
+}
+
   </style>
 
 </head>
@@ -40,8 +44,16 @@
   <script>
 
     const data = {
-      mapImage: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/6uZKG4gRQNG3ss5SUfYV.jpg"
-    };
+  mapImage: "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/6uZKG4gRQNG3ss5SUfYV.jpg",
+
+  character:{
+    imageFace:"https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/KEFYrtEpN7ZThUOuQZ6d.png",
+    imageHair:"https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/RdqxEefyJ04NBikIMATF.png",
+    x:7,
+    y:7,
+    size:12
+  }
+};
 
     const mapContainer = document.getElementById("mapContainer");
 
@@ -50,6 +62,20 @@
     mapImage.src = data.mapImage;
 
     mapContainer.appendChild(mapImage);
+
+    const face = document.createElement("img");
+
+face.src = data.character.imageFace;
+
+face.classList.add("character");
+
+face.style.width = data.character.size + "%";
+
+face.style.left = data.character.x + "%";
+
+face.style.top = data.character.y + "%";
+
+mapContainer.appendChild(face);
 
   </script>
 
