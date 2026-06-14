@@ -39,6 +39,11 @@
   left:0;
   width:100%;
 }
+   .checkpoint{
+  position:absolute;
+  width:10%;
+  cursor:pointer;
+} 
 
   </style>
 
@@ -104,7 +109,21 @@ hair.classList.add("character-layer");
 
 characterContainer.appendChild(hair);
 
-    
+data.checkpoints.forEach(checkpoint => {
+
+  const checkpointImage = document.createElement("img");
+
+  checkpointImage.src = checkpoint.icon;
+
+  checkpointImage.classList.add("checkpoint");
+
+  checkpointImage.style.left = checkpoint.x + "%";
+
+  checkpointImage.style.top = checkpoint.y + "%";
+
+  mapContainer.appendChild(checkpointImage);
+
+});    
 
 
   </script>
