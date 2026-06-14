@@ -65,19 +65,36 @@
 
     mapContainer.appendChild(mapImage);
 
+    const characterContainer = document.createElement("div");
+
+    characterContainer.classList.add("character");
+
+    characterContainer.style.width = data.character.size + "%";
+
+    characterContainer.style.left = data.character.x + "%";
+
+    characterContainer.style.top = data.character.y + "%";
+
+    mapContainer.appendChild(characterContainer);
+
     const face = document.createElement("img");
 
-face.src = data.character.imageFace;
+      face.src = data.character.imageFace;
 
-face.classList.add("character");
+      face.style.width = "100%";
 
-face.style.width = data.character.size + "%";
+      characterContainer.appendChild(face);
 
-face.style.left = data.character.x + "%";
+    const hair = document.createElement("img");
 
-face.style.top = data.character.y + "%";
+hair.src = data.character.imageHair;
 
-mapContainer.appendChild(face);
+hair.style.width = "100%";
+
+characterContainer.appendChild(hair);
+
+    
+
 
   </script>
 
