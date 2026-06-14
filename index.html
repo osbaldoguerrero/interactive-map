@@ -31,6 +31,13 @@
 
     .character{
   position:absolute;
+  aspect-ratio:1/1;
+}
+    .character-layer{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
 }
 
   </style>
@@ -83,6 +90,8 @@
 
       face.style.width = "100%";
 
+      face.classList.add("character-layer");
+
       characterContainer.appendChild(face);
 
     const hair = document.createElement("img");
@@ -90,6 +99,8 @@
 hair.src = data.character.imageHair;
 
 hair.style.width = "100%";
+
+hair.classList.add("character-layer");    
 
 characterContainer.appendChild(hair);
 
