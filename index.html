@@ -107,7 +107,7 @@
 
   <script>
 
-    const params =
+const params =
 new URLSearchParams(window.location.search);
 
 const jsonString =
@@ -115,43 +115,21 @@ params.get("data");
 
 let data;
 
-if(jsonString){
+try {
 
   data = JSON.parse(
     decodeURIComponent(jsonString)
   );
 
-}else{
+} catch(error){
 
-  data = {
+  document.body.innerHTML = `
+    <h2>Error cargando mapa</h2>
+  `;
 
-    mapImage:"https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/6uZKG4gRQNG3ss5SUfYV.jpg",
-
-    character:{
-      imageFace:"https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/KEFYrtEpN7ZThUOuQZ6d.png",
-      imageHair:"https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/mH4HOfmnbxo82Zm1tazf/pub/RdqxEefyJ04NBikIMATF.png",
-      x:7,
-      y:7,
-      size:12
-    },
-
-    checkpoints:[
-      {
-        id:"nivel0",
-        x:50,
-        y:50,
-        size:10,
-        z:10,
-        icon:"https://res.cloudinary.com/dkyjcwocf/image/upload/q_auto/f_auto/v1781047149/725384_pzu8h5.png",
-        popupImage:"https://res.cloudinary.com/dkyjcwocf/image/upload/q_auto/f_auto/v1779325153/cld-sample-5.jpg",
-        text:"Checkpoint de prueba"
-      }
-    ]
-
-  };
-
+  throw error;
 }
-    console.log(data);
+
 
     const mapContainer = document.getElementById("mapContainer");
 
