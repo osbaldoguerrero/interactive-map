@@ -73,6 +73,17 @@
   width:100%;
   height:auto;
 }
+    #closePopup{
+  float:right;
+
+  border:none;
+
+  background:none;
+
+  font-size:20px;
+
+  cursor:pointer;
+}
 
   </style>
 
@@ -86,11 +97,13 @@
 
   <div id="popupContent" class="popup-content">
 
-    <img id="popupImage">
+  <button id="closePopup">✕</button>
 
-    <p id="popupText"></p>
+  <img id="popupImage">
 
-  </div>
+  <p id="popupText"></p>
+
+</div>
 
 </div>
 
@@ -131,6 +144,15 @@
 
     const popupText =
     document.getElementById("popupText");
+
+    const closePopup =
+    document.getElementById("closePopup");
+
+    closePopup.addEventListener("click", () => {
+
+      popup.style.display = "none";
+
+});
 
     const mapImage = document.createElement("img");
 
