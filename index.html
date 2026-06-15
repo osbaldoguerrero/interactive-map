@@ -43,11 +43,21 @@
 }
    .checkpoint{
   position:absolute;
-  width:10%;
   cursor:pointer;
-  z-index:10;
   transform: translate(-50%, -50%);
 } 
+    .popup{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+
+  display:none;
+
+  justify-content:center;
+  align-items:center;
+
+  z-index:1000;
+}
 
   </style>
 
@@ -56,6 +66,18 @@
 <body>
 
   <div id="mapContainer"></div>
+
+  <div id="popup" class="popup">
+
+  <div id="popupContent">
+
+    <img id="popupImage">
+
+    <p id="popupText"></p>
+
+  </div>
+
+</div>
 
   <script>
 
@@ -85,6 +107,15 @@
 };
 
     const mapContainer = document.getElementById("mapContainer");
+
+    const popup =
+    document.getElementById("popup");
+
+    const popupImage =
+    document.getElementById("popupImage");
+
+    const popupText =
+    document.getElementById("popupText");
 
     const mapImage = document.createElement("img");
 
@@ -134,11 +165,25 @@ data.checkpoints.forEach(checkpoint => {
 
   checkpointImage.classList.add("checkpoint");
 
+  checkpointImage.style.width = checkpoint.size + "%";
+
   checkpointImage.style.zIndex = checkpoint.z;
 
   checkpointImage.style.left = checkpoint.x + "%";
 
   checkpointImage.style.top = checkpoint.y + "%";
+
+  checkpointImage.addEventListener("click", () => {
+
+  popupImage.src =
+    checkpoint.popupImage;
+
+  popupText.textContent =
+    checkpoint.text;
+
+  popup.style.display = "flex";
+
+});
 
   mapContainer.appendChild(checkpointImage);
 
